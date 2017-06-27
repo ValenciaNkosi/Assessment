@@ -1,0 +1,9 @@
+//  Global includes for other stylesheets
+//  Include the discovery_vars that sets some defaults and overrides third-party vars
+@import "discovery/discovery-vars";
+
+//  Include Bootstrap vars and mixins so that we can reference them in our files
+@import "../../assets/bootstrap/dev/scss/variables";
+@import "../../assets/bootstrap/dev/scss/mixins";
+
+@import "assets/assets";

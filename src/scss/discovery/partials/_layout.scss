@@ -1,0 +1,479 @@
+body, html {
+    height: 100%;
+    // line-height: 1.875;
+}
+
+.main-content-container {
+    position: relative;
+}
+
+.section {
+    padding: 45px 0;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+//Background vars
+.bg-gray-light{
+    background: $background-gray-light;
+}
+
+.bg-gray {
+    background: $background-gray;
+}
+
+.bg-brand-primary {
+    background: $background-brand-primary;
+}
+
+.bg-brand-dark {
+    background: $background-brand-dark;
+}
+
+//Buttons
+.btn {
+    border: 2px solid transparent;
+    border-radius: 0;
+    font-size: .79012345679em;
+    letter-spacing: .1em;
+    line-height: 1.5em;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &-primary {
+    background-color: $background-brand-primary;
+    color: $white;
+    display: block;
+
+        &:hover, &:focus {
+            color: $white;
+            background-color: $background-brand-dark;
+            border-color: $border-blue;
+            text-decoration: none;
+        }
+    }
+
+    &-inverse {
+    color: $white;
+    background-color: transparent;
+    border-color: $white;
+
+        &:hover, &:focus {
+            background-color: transparent;
+            border-color: $border-gray-light;
+            color: $white;
+        }
+    }
+}
+
+//Notification
+.discovery-notification {
+    color: $white;
+    padding: 15px 0;
+
+    &__copy {
+        line-height: 1.3;
+        margin-top: 15px;
+        margin-bottom: 0;
+
+        @include media-breakpoint-up(lg) {
+            margin-top: 10px;
+        }
+    }
+
+    &__button {
+        @include media-breakpoint-down(md){
+            margin-top: 15px;
+        }
+    }
+}
+
+//Header
+.discovery-header {
+    &__container {
+        padding: 20px 0;
+        text-transform: uppercase;
+    }
+
+    &__links {
+        margin: 0;
+        padding: 0;
+        text-align: right;
+    }
+
+    &__link {
+        display: inline-block;
+        position: relative;
+
+        @include media-breakpoint-up(lg) {
+            padding: 0 15px;
+
+            &::before {
+                content: '';
+                background: $border-gray;
+                height: 70%;
+                left: 0px;
+                opacity: .5;
+                position: absolute;
+                top: 3px;
+                width: 1px;
+        }     
+        
+        &:first-child {
+            &::before {
+                background: transparent;
+                padding-left: 0;
+            }
+        }
+
+        &:nth-child(2) {
+            &::before {
+                background: transparent;
+                padding-left: 0;
+            }
+        }
+        }
+
+    }
+
+    &__button {
+        padding: 5px 15px;
+
+        @include media-breakpoint-down(md) {
+            background: $white;
+            border: none;
+            border-right: 1px solid $border-gray;
+            color: $blue-light;
+        }
+    }
+
+    &__hamburger {
+        position: relative;
+        display: inline-block;
+        width: 25px;
+        height: 16px;
+        margin: 0 15px;
+        border-top: 2px solid $blue-light;
+        border-bottom: 2px solid $blue-light;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 0px;
+            width: 100%;
+            border-top: 2px solid $blue-light;
+        }
+    }
+
+    @include media-breakpoint-down(md) {
+        border-bottom: 1px solid $border-gray;
+    }
+}
+
+//Nav
+.discovery-nav {
+    border-top: 1px solid $border-gray;
+    border-bottom: 1px solid $border-gray;
+    color: $primary;
+    font-size: 13px;
+
+    &__links {
+        list-style: none;;
+        margin: 0;
+        padding: 0;
+        text-align: right;
+    }
+
+    &__link {
+          display: inline-block;
+          text-transform: uppercase;
+
+          a {
+            color: $primary;
+            position: relative;
+            display: inline-block;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 15px 0;
+            margin: 0 10px;
+
+            &::before {
+                background: $background-brand-primary;
+                bottom: 15px;
+                content: "";
+                display: block;
+                position: absolute;
+                height: 2px;
+                left: 0;
+                transform: scaleX(0);
+                transition: all .3s ease-in-out 0s;
+                visibility: hidden;
+                width: 100%;
+            }
+
+            &:hover {
+                &::before {
+                    transform: scaleX(1);
+                    visibility: visible;
+                }
+            }            
+              
+        }
+    }
+}
+
+//Quote
+.discovery-quote {
+    padding: 0 15px;
+    margin: 30px 0 15px;
+
+    &__heading {
+        color: $background-brand-primary;
+        font-size: 18px;
+        font-style: normal;
+        margin-bottom: 15px;
+        padding-top: 0;
+        text-transform: uppercase;
+    }
+
+    &__items {
+        list-style: none;
+        padding: 0;
+    }
+
+    &__item {
+        margin-bottom:  10px;
+    }
+
+    @include media-breakpoint-down(md) {
+        .container {
+            padding: 0;
+            width: 100%;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        position: absolute;
+        top: 40px;
+        width: 100%;
+        z-index: 10;
+    }
+}
+
+//Banner
+.discovery-banner {
+    background: url('../img/homepage-banner.jpg') no-repeat;
+    background-size: cover;
+    min-height: 480px;
+
+    &__form {
+        margin-top: 150px;
+
+        .input-group {
+            background: $white;
+            opacity: 0.7;
+        }
+
+        .form-control {
+            border: 2px solid rgba(0,0,0,.1);
+            border-radius: 0;
+            padding: 10px;
+        }
+    }
+
+    &__search {
+        background: $white;
+        border: none;
+        bottom: 0;
+        height: 100%;
+        opacity: 0.7;
+        position: absolute;
+        right: 0;
+        z-index: 5;
+
+        &::before {
+            background: $border-gray-darker;
+            content: '';
+            height: 70%;    
+            margin-right: 10px;
+            width: 2px;
+
+        }
+    }
+}
+
+//News
+.discovery-news {
+    &__image {
+        display: flex;
+        margin-bottom: 45px;
+        position: relative;
+
+        &::before {
+            background: $background-dark-blue;
+            content: '';
+            height: 100%;
+            left: 0;
+            opacity: 0.5;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+    }
+
+    &__heading {
+        margin-bottom: 20px;
+    }
+
+    &__copy {
+        align-items: flex-end;
+        bottom: 0;
+        color: $white;
+        display: flex;
+        font-size: 20px;
+        left: 0;
+        position: absolute;
+        padding: 20px;
+        top: 0;
+        z-index: 2;
+    }
+}
+
+//Products
+.discovery-products {
+    &__heading {
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+}
+
+//Footer
+.discovery-footer {
+    font-size: 14px;
+
+    &__heading {
+        font-size: 16px;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+    }
+
+    &__links {
+        list-style: none;
+        margin-bottom: 15px;
+        padding: 0;
+
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 0;
+        }
+    }
+
+    &__link {
+        line-height: 42px;
+    }
+
+    &__contact {
+        .discovery-footer__links {
+            padding-left: 16px;
+        }
+    }
+
+    &__dropdown  {
+        .btn {
+            background: $white;
+            border-color: $border-gray;
+            border-radius: 0;
+            text-align: left;
+            width: 100%;
+            font-size: 14px;
+            text-transform: none;
+        }
+    }
+
+    &__connect {
+        &-link {
+            padding: 0 15px;
+            position: relative;
+
+            &:last-child {
+                &::before {
+                    content: '';
+                    background: #cfd1d2;
+                    height: 30%;
+                    left: -7px;
+                    position: absolute;
+                    top: 15px;
+                    width: 1px;
+                } 
+            }
+        }
+        .discovery-footer__link {
+            margin-right: 5px;
+        }
+        @include media-breakpoint-up(lg) {
+            padding-top: 15px;
+        }
+    }
+}
+
+//Copyright
+.discovery-copyright {
+    background: $background-brand-primary;
+    color: $white;
+    font-size: 12px;
+
+    &__links {
+        margin-bottom: 15px;
+        padding: 0;
+
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 0;
+        }
+    }
+
+    &__link {
+        line-height: 22px;
+        margin: 0 5px;
+        position: relative;
+
+        @include media-breakpoint-up(sm) {
+
+            &::before {
+                content: '';
+                background: $border-gray;
+                height: 55%;
+                left: -7px;
+                opacity: 0.5;
+                position: absolute;
+                top: 6px;
+                width: 1px;
+            }     
+        
+            &:first-child {
+                &::before {
+                    background: transparent;
+                }
+            }
+        }
+    }
+
+    a {
+        color: $white;
+    }
+
+    &__copy {
+        margin-bottom: 0;
+    }
+
+    @include media-breakpoint-up(sm) {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+
+
